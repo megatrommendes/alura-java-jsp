@@ -1,6 +1,7 @@
 package br.com.alura.screenmatch.model;
 
 import br.com.alura.screenmatch.service.ConsultaChatGPT;
+import br.com.alura.screenmatch.service.ConsultaLibreTranslate;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Serie {
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinopse = ConsultaChatGPT.obterTraducao(dadosSerie.sinopse()).trim();
+        this.sinopse = ConsultaLibreTranslate.obterTraducao(dadosSerie.sinopse()).trim();
     }
 
     public Long getId() {
